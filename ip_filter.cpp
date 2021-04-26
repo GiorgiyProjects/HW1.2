@@ -45,6 +45,7 @@ inline std::ostream& operator << (std::ostream& os, const std::vector<T>& ip_poo
         }
         os << std::endl;
     }
+    return os;
 }
 
 using namespace std;
