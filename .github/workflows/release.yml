@@ -14,7 +14,7 @@ jobs:
           submodules: true
       - run: cmake .
       - run: make
-      - run: cat ip_filter.tsv | ./ip_filter | md5sum
+      - run: ./ip_filter | md5sum
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
