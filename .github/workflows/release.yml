@@ -12,9 +12,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
       - run: cmake .
       - run: make
       - run: ./ip_filter | md5sum
+      - run: ./tests | md5sum
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

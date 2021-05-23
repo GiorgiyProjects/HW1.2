@@ -1,5 +1,12 @@
 #include <fstream>
 #include <iostream>
+#include <vector>
+#include <cassert>
+#include <cstdlib>
+#include <string>
+#include <vector>
+#include<algorithm>
+#include <cstdarg>
 
 using pool = std::vector<std::vector<int>>;
 
@@ -55,6 +62,22 @@ inline std::ostream& operator << (std::ostream& os, const std::vector<T>& ip_poo
         os << std::endl;
     }
     return os;
+}
+
+std::string poolToString(const pool& ip_pool)
+{
+    std::string result = "";
+    for(const auto& ip : ip_pool)
+    {
+        std::string c = "";
+        for(const auto& ip_part : ip)
+        {
+            result += c + std::to_string(ip_part);
+            c = ".";
+        }
+        result += "\n";
+    }
+    return result;
 }
 
 void LexicographicSort(pool& ip_pool)
