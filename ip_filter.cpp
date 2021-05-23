@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
     try
     {
         pool ip_pool;
-        ifstream file("ip_filter.tsv");
+        ifstream file("test_data/ip_filter.tsv");
         if (file.is_open())
         {
             readPoolFromFile(ip_pool, file);
