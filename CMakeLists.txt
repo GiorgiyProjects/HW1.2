@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 
 project(ip_filter)
 
-add_executable(ip_filter ip_filter.cpp LexiSorter.h)
+add_executable(ip_filter ip_filter.cpp FilterLibrary.hpp)
 
 set_target_properties(ip_filter PROPERTIES
     CXX_STANDARD 14
