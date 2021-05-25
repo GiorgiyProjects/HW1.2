@@ -15,7 +15,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
       - run: cmake .
       - run: make
-      - run: ./ip_filter | md5sum
+      - run: cat test_data/ip_filter.tsv |./ip_filter | md5sum
       - run: ./tests | md5sum
       - name: Create Release
         id: create_release

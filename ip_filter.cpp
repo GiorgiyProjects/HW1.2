@@ -14,15 +14,7 @@ int main(int argc, char const *argv[])
     try
     {
         pool ip_pool;
-        ifstream file("test_data/ip_filter.tsv");
-        if (file.is_open())
-        {
-            readPoolFromFile(ip_pool, file);
-            file.close();
-        } else {
-            std::cout << "could not find the input file!" << std::endl;
-            return -1;
-        }
+        readPoolFromFile(ip_pool, std::cin);
 
         // TODO reverse lexicographic sort
         LexicographicSort(ip_pool);

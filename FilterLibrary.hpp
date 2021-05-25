@@ -35,9 +35,9 @@ std::vector<std::string> split(const std::string &str, char d)
     return r;
 }
 
-void readPoolFromFile(pool& ip_pool, std::ifstream& file)
+void readPoolFromFile(pool& ip_pool, std::istream& in)
 {
-    for(std::string line; std::getline(file, line);)
+    for(std::string line; std::getline(in, line);)
     {
         std::vector<std::string> v = split(line, '\t');
         auto ip_filter_strings = split(v.at(0), '.');
@@ -82,18 +82,7 @@ std::string poolToString(const pool& ip_pool)
 
 void LexicographicSort(pool& ip_pool)
 {
-    sort(ip_pool.begin(), ip_pool.end(), [] (std::vector<int> v1, std::vector<int> v2)
-    {
-        for (int i = 0; i < std::min(v1.size(), v2.size()); ++i)
-        {
-            if (v1[i] != v2[i])
-            {
-                return (v1[i] > v2[i]);
-            }
-        }
-        return  true;
-    });
-    return;
+    sort(ip_pool.begin(), ip_pool.end(),std::greater<std::vector<int>>());
 }
 
 auto startFromOne = [](const std::vector<int>& v)
